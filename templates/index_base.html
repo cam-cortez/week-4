@@ -114,10 +114,7 @@
 		var transform = d3.geo.transform({point: projectStream});
 		var path = d3.geo.path().projection(transform);
 
-
-	function updateData(){
 	  	d3.json("/getData/", function(data) {
-
 
 			//create placeholder circle geometry and bind it to data
 			var circles = g.selectAll("circle").data(data.features);
@@ -168,9 +165,6 @@
 			map.on("viewreset", update);
 
 		});
-
-	};
-	updateData();
 
 	</script>
 

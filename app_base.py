@@ -1,8 +1,6 @@
 from flask import Flask
 from flask import render_template
 
-import random
-
 import json
 
 import sys
@@ -20,7 +18,7 @@ def getData():
 	
 	client = pyorient.OrientDB("localhost", 2424)
 	session_id = client.connect("root", "spot")
-	db_name = "soufun"
+	db_name = "property_test"
 	db_username = "admin"
 	db_password = "admin"
 
@@ -40,8 +38,6 @@ def getData():
 	query = 'SELECT FROM Listing WHERE latitude BETWEEN {} AND {} AND longitude BETWEEN {} AND {}'
 
 	records = client.command(query.format(lat1, lat2, lng1, lng2))
-	random.shuffle(records)
-        records = records[:100]
 
 	numListings = len(records)
 	print 'received ' + str(numListings) + ' records'
@@ -60,8 +56,6 @@ def getData():
 		output["features"].append(feature)
 
 	return json.dumps(output)
-	
-output = {"type":"FeatureCollection","features":[]}
 
 if __name__ == "__main__":
     app.run(host='0.0.0.0',port=5000,debug=True,threaded=True)
