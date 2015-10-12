@@ -2,7 +2,7 @@ from flask import Flask
 from flask import render_template
 
 import json
-
+import time
 import sys
 
 import pyorient
@@ -18,7 +18,7 @@ def getData():
 	
 	client = pyorient.OrientDB("localhost", 2424)
 	session_id = client.connect("root", "spot")
-	db_name = "soufun"
+	db_name = "property_test"
 	db_username = "admin"
 	db_password = "admin"
 
@@ -56,8 +56,6 @@ def getData():
 		output["features"].append(feature)
 
 	return json.dumps(output)
-	
-output = {"type":"FeatureCollection","features":[]}
 
 if __name__ == "__main__":
     app.run(host='0.0.0.0',port=5000,debug=True,threaded=True)
