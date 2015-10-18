@@ -1,0 +1,45 @@
+body {
+		    padding: 0;
+		    margin: 0;
+		    font-family: System, Helvetica, Arial, sans-serif;
+			font-size: 12px;
+			line-height: 18px;
+		}
+		html, body, #map {
+		    height: 100%;
+		}
+		circle {
+			fill-opacity: .3;
+			fill: white;
+			stroke-width: 0px;
+		}
+		circle:hover {
+		  	stroke: orange;
+		  	stroke-width: 20px;
+		  	cursor: crosshair;
+		}
+		div.tooltip{
+			padding: 6px;
+			background: orange;
+			visibility: hidden;
+			position: absolute;
+			z-index: 10;
+		}
+		p.tooltip-text{
+			margin: 0px;
+			padding: 0px;
+		}
+		div.menu{
+			position: fixed;
+			margin: 0px;
+			padding: 10px;
+			top: 0px;
+			right: 0px;
+			width: 250px;
+			height: 500px;
+			background: rgba(255,255,255,.7);
+		}
+		em{
+    	color: black;
+    	font-weight: bold;
+		}
